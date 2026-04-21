@@ -1,0 +1,160 @@
+/* ─── Noto Sans Devanagari (self-hosted, subsetted to U+0900–U+097F) ─────────── */
+/* The woff2 file is generated at build time via pyftsubset and placed in        */
+/* /public/fonts/noto-sans-devanagari-subset.woff2                               */
+@font-face {
+  font-family: 'Noto Sans Devanagari';
+  src: url('/fonts/noto-sans-devanagari-subset.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0900-097F, U+200C-200D, U+20B9, U+25CC, U+A8E0-A8F7, U+0000-00FF;
+}
+
+/* ─── CSS Custom Properties ──────────────────────────────────────────────────── */
+:root {
+  --font-devanagari: 'Noto Sans Devanagari';
+
+  /* Design tokens that map to Tailwind config */
+  --color-parchment: #faf4e6;
+  --color-charcoal:  #2e2b26;
+  --color-navy:      #1f2d52;
+  --color-gold:      #e8a010;
+  --color-saffron:   #f97316;
+  --color-border:    #ddd7c8;
+
+  /* Scrollbar */
+  --scrollbar-thumb: #ddd7c8;
+  --scrollbar-track: transparent;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-parchment text-charcoal font-sans antialiased;
+    min-height: 100dvh;
+  }
+
+  /* Custom scrollbar — webkit */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-pill;
+  }
+
+  /* Focus ring — accessible, brand-coloured */
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold ring-offset-2 ring-offset-parchment;
+  }
+
+  /* Typography base */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-navy;
+    font-weight: 600;
+  }
+
+  p { @apply leading-relaxed; }
+
+  /* Devanagari text — larger base size for legibility */
+  .font-devanagari {
+    font-family: var(--font-devanagari), 'Noto Sans Devanagari', sans-serif;
+    line-height: 1.9;
+    letter-spacing: 0.01em;
+  }
+
+  /* IAST transliteration — use serif for elegance */
+  .font-iast {
+    @apply font-serif italic;
+    letter-spacing: 0.02em;
+  }
+
+  /* Selection colour */
+  ::selection {
+    background-color: rgba(232, 160, 16, 0.2);
+    color: inherit;
+  }
+}
+
+/* ─── Component Layer ────────────────────────────────────────────────────────── */
+@layer components {
+  /* Skeleton shimmer base */
+  .skeleton {
+    @apply relative overflow-hidden bg-parchment-200 rounded;
+    background-image: linear-gradient(
+      90deg,
+      theme(colors.parchment.200) 0%,
+      theme(colors.parchment.100) 40%,
+      theme(colors.parchment.200) 80%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.8s linear infinite;
+  }
+
+  /* Gold divider — ornamental */
+  .divider-gold {
+    @apply w-16 h-px mx-auto my-6;
+    background: linear-gradient(90deg, transparent, theme(colors.gold.DEFAULT), transparent);
+  }
+
+  /* Depth layer labels */
+  .depth-label {
+    @apply inline-flex items-center gap-1.5 text-ui-xs font-sans font-medium
+           uppercase tracking-wider text-gold-600 select-none;
+  }
+
+  /* Citation chip */
+  .citation-chip {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-pill text-ui-xs
+           font-sans font-medium border border-gold-200 bg-gold-50 text-gold-700
+           hover:bg-gold-100 hover:border-gold-300 transition-colors cursor-pointer
+           no-underline;
+  }
+
+  /* Usage meter bar */
+  .usage-bar-track {
+    @apply h-1.5 rounded-pill bg-parchment-200 overflow-hidden;
+  }
+  .usage-bar-fill {
+    @apply h-full rounded-pill transition-all duration-700 ease-out;
+  }
+
+  /* Prose override for commentary text */
+  .commentary-prose {
+    @apply prose prose-sm max-w-none
+           prose-headings:font-serif prose-headings:text-navy
+           prose-p:text-charcoal prose-p:leading-relaxed
+           prose-strong:text-charcoal prose-strong:font-semibold;
+  }
+}
+
+/* ─── Utility Layer ──────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Safe area insets for mobile notch/home bar */
+  .safe-top    { padding-top:    env(safe-area-inset-top); }
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+  .safe-left   { padding-left:   env(safe-area-inset-left); }
+  .safe-right  { padding-right:  env(safe-area-inset-right); }
+
+  /* Text balance for headings */
+  .text-balance { text-wrap: balance; }
+
+  /* GPU-accelerated animations */
+  .will-change-transform { will-change: transform; }
+  .will-change-opacity   { will-change: opacity; }
+
+  /* Gradient text — gold */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, theme(colors.gold.600), theme(colors.saffron.500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
