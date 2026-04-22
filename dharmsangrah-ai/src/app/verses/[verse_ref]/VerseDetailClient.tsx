@@ -221,7 +221,7 @@ export function VerseDetailClient({ verse }: VerseDetailClientProps) {
           <div className="max-w-2xl mx-auto flex items-center justify-between gap-4">
             {verseNum > 1 && (
               <Link
-                href={`/verses/BG_${chapterNum}.${verseNum - 1}`}
+                href={`/verses/${encodeURIComponent(`BG ${chapterNum}.${verseNum - 1}`)}`}
                 className="flex items-center gap-2 text-ui-sm font-sans text-charcoal-400
                            hover:text-gold-600 transition-colors"
               >
@@ -230,7 +230,7 @@ export function VerseDetailClient({ verse }: VerseDetailClientProps) {
             )}
             <div className="flex-1" />
             <Link
-              href={`/verses/BG_${chapterNum}.${verseNum + 1}`}
+              href={`/verses/${encodeURIComponent(`BG ${chapterNum}.${verseNum + 1}`)}`}
               className="flex items-center gap-2 text-ui-sm font-sans text-charcoal-400
                          hover:text-gold-600 transition-colors"
             >

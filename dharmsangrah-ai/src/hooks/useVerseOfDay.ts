@@ -13,12 +13,12 @@ import type { Verse } from '@/types';
 
 // Curated featured verse refs — one per week of the year (52 items covers all)
 const FEATURED_VERSES = [
-  'BG_2.47', 'BG_2.20', 'BG_3.19', 'BG_4.7',  'BG_6.5',
-  'BG_6.19', 'BG_8.7',  'BG_9.22', 'BG_10.8', 'BG_11.33',
-  'BG_12.13','BG_13.27','BG_14.22','BG_15.15','BG_16.3',
-  'BG_17.3', 'BG_18.66','BG_2.14', 'BG_3.27', 'BG_4.18',
-  'BG_5.18', 'BG_6.34', 'BG_7.19', 'BG_9.27', 'BG_10.20',
-  'BG_12.15','BG_13.13','BG_15.7', 'BG_16.21','BG_18.20',
+  'BG 2.47', 'BG 2.20', 'BG 3.19', 'BG 4.7',  'BG 6.5',
+  'BG 6.19', 'BG 8.7',  'BG 9.22', 'BG 10.8', 'BG 11.33',
+  'BG 12.13','BG 13.27','BG 14.22','BG 15.15','BG 16.3',
+  'BG 17.3', 'BG 18.66','BG 2.14', 'BG 3.27', 'BG 4.18',
+  'BG 5.18', 'BG 6.34', 'BG 7.19', 'BG 9.27', 'BG 10.20',
+  'BG 12.15','BG 13.13','BG 15.7', 'BG 16.21','BG 18.20',
 ];
 
 function getTodaysVerseRef(): string {

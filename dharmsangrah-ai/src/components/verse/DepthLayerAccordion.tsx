@@ -170,10 +170,11 @@ function LayerPanel({ meta, content, isOpen, onToggle, isFirst, isLast }: LayerP
           )}
 
           {meta.number === 3 && (
-            <div
-              className="commentary-prose text-ui-base"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
+            <div className="commentary-prose text-ui-base space-y-4">
+              {content.split('\n\n').map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
           )}
 
           {meta.number === 4 && (
