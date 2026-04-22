@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next';
-import { inter, crimsonPro, DEVANAGARI_FONT_CSS_VAR } from '@/lib/fonts';
+import { inter, crimsonPro } from '@/lib/fonts';
+import { Providers } from './providers';
+import { AppNav } from '@/components/nav/AppNav';
 import './globals.css';
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -59,7 +61,12 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
       </head>
       <body className="min-h-dvh bg-parchment text-charcoal antialiased">
-        {children}
+        <Providers>
+          <AppNav />
+          <div className="pt-14">
+            {children}
+          </div>
+        </Providers>
       </body>
     </html>
   );
